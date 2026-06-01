@@ -2,19 +2,20 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+local_backend: true
+
+media_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "products"
-    label: "العروض والمنتجات"
-    folder: "content/products"
+    label: "المنتجات والعروض"
+    folder: "products"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "اسم الغرفة / المنتج", name: "title", widget: "string" }
+      - { label: "اسم المنتج أو الغرفة", name: "title", widget: "string" }
+      - { label: "تاريخ النشر", name: "date", widget: "datetime" }
       - { label: "صورة المنتج الرئيسية", name: "image", widget: "image" }
-      - { label: "الوصف والتفاصيل", name: "description", widget: "text" }
       - { label: "السعر (اختياري)", name: "price", widget: "string", required: false }
-      - { label: "رابط الواتساب المباشر للطلب", name: "whatsapp_link", widget: "string" }
-      
+      - { label: "تفاصيل ووصف المنتج", name: "body", widget: "markdown" }
