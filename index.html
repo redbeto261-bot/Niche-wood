@@ -4,176 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niche Wood | Built with style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- ربط مكتبة لوحة التحكم Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-        :root {
-            --deep-umber: #4C362D;
-            --muted-sage: #88937B;
-            --linen-white: #E8E1D5;
-            --dark-text: #2C221E;
-        }
-
+        /* التنسيقات العامة والألوان المعتمدة للهوية */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background-color: var(--linen-white);
-            color: var(--dark-text);
+            background-color: #E8E1D5; /* لون الكتان الأبيض */
+            color: #4C362D; /* لون البني العميق */
         }
-
-        header {
-            background-color: var(--deep-umber);
-            padding: 20px;
-            text-align: center;
+        
+        /* تنسيق الهيدر واللوجو الجديد */
+        .main-header {
+            width: 100%;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #4C362D; /* لون البني العميق المتناسق مع خلفية اللوجو */
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-
-        .logo-area h1 {
-            color: var(--linen-white);
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .logo-area p {
-            color: var(--muted-sage);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero {
+        .logo-container {
+            max-width: 280px; /* حجم مثالي للوجو على الموبايل والشاشات */
+            width: 100%;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #f5f0e6, var(--linen-white));
+        }
+        .brand-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .hero h2 {
-            font-size: 2rem;
-            color: var(--deep-umber);
-            margin-bottom: 15px;
-        }
-
-        .catalog-container {
+        /* قسم المحتوى والمنتجات */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            text-align: center;
         }
-
-        .product-card {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(76, 54, 45, 0.1);
+        .intro-text {
+            margin-bottom: 40px;
         }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            color: var(--deep-umber);
+        .intro-text h2 {
+            font-size: 24px;
+            color: #4C362D;
             margin-bottom: 10px;
         }
-
-        .product-description {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            height: 50px;
-            overflow: hidden;
+        .intro-text p {
+            font-size: 16px;
+            color: #88937B; /* لون الرمادي السايدج المعتمد */
+            font-weight: 500;
         }
 
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+        /* معرض المنتجات (يتم تحديثه تلقائياً من لوحة التحكم) */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .no-products {
+            grid-column: 1 / -1;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px dashed #88937B;
+            color: #88937B;
         }
 
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--deep-umber);
-        }
-
-        .btn-order {
-            background-color: var(--muted-sage);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .btn-order:hover {
-            background-color: #737e67;
-        }
-
+        /* الفوتر السفلي */
         footer {
-            background-color: var(--deep-umber);
-            color: var(--linen-white);
+            background-color: #4C362D;
+            color: #E8E1D5;
             text-align: center;
             padding: 20px;
-            margin-top: 50px;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <h1>NICHE WOOD</h1>
-            <p>Built with style</p>
+    <!-- هيدر الموقع مع اللوجو الفخم من الصورة 1000254343_2.jpg -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="1000254343_2.jpg" alt="Niche Wood Logo" class="brand-logo">
         </div>
     </header>
 
-    <section class="hero">
-        <h2>كتالوج عروض الحصرية</h2>
-        <p>تصميمات راقية مصنعة بأعلى جودة لتناسب ذوقكم الرفيع</p>
-    </section>
-
-    <main class="catalog-container" id="catalog">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=600" alt="غرفة نوم" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">مجموعة غرف النوم الفاخرة - موديل كينج</h3>
-                <p class="product-description">خشب طبيعي بالكامل، تصميم مودرن يجمع بين الأناقة والعملية.</p>
-                <div class="product-meta">
-                    <span class="price">اتصل للسعر</span>
-                    <a href="https://wa.me/201000000000" class="btn-order" target="_blank">طلب عبر واتساب</a>
-                </div>
-            </div>
+    <!-- الجسم الرئيسي للموقع -->
+    <main class="container">
+        <div class="intro-text">
+            <h2>مرحباً بكم في Niche Wood</h2>
+            <p>Built with style</p>
         </div>
+
+        <!-- هنا تظهر المنتجات والعروض التي تضيفها من لوحة التحكم -->
+        <section class="products-grid">
+            <div class="no-products">
+                <p>قم بالدخول إلى لوحة التحكم لرفع أولى منتجاتك وعروضك المميزة الآن!</p>
+            </div>
+        </section>
     </main>
 
+    <!-- فوتر الموقع -->
     <footer>
-        <p>جميع الحقوق محفوظة © Niche Wood - Built with style</p>
+        <p>&copy; 2026 Niche Wood - جميع الحقوق محفوظة.</p>
     </footer>
 
+    <!-- سكريبت توجيه المستخدمين عند تسجيل الدخول للوحة التحكم -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
