@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niche Wood | Built with style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-umber: #4C362D;
+            --muted-sage: #88937B;
+            --linen-white: #E8E1D5;
+            --dark-text: #2C221E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--linen-white);
+            color: var(--dark-text);
+        }
+
+        header {
+            background-color: var(--deep-umber);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo-area h1 {
+            color: var(--linen-white);
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .logo-area p {
+            color: var(--muted-sage);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f0e6, var(--linen-white));
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--deep-umber);
+            margin-bottom: 15px;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(76, 54, 45, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--deep-umber);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--deep-umber);
+        }
+
+        .btn-order {
+            background-color: var(--muted-sage);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn-order:hover {
+            background-color: #737e67;
+        }
+
+        footer {
+            background-color: var(--deep-umber);
+            color: var(--linen-white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>NICHE WOOD</h1>
+            <p>Built with style</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>كتالوج عروض الحصرية</h2>
+        <p>تصميمات راقية مصنعة بأعلى جودة لتناسب ذوقكم الرفيع</p>
+    </section>
+
+    <main class="catalog-container" id="catalog">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=600" alt="غرفة نوم" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">مجموعة غرف النوم الفاخرة - موديل كينج</h3>
+                <p class="product-description">خشب طبيعي بالكامل، تصميم مودرن يجمع بين الأناقة والعملية.</p>
+                <div class="product-meta">
+                    <span class="price">اتصل للسعر</span>
+                    <a href="https://wa.me/201000000000" class="btn-order" target="_blank">طلب عبر واتساب</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © Niche Wood - Built with style</p>
+    </footer>
+
+</body>
+</html>
